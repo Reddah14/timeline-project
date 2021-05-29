@@ -7,6 +7,10 @@ const routes = [
       { path: '', component: () => import('pages/Welcome.vue') }
     ]
   },
+  {
+    path: '/timeline',
+    component: () => import('pages/Timeline.vue')  
+  },  
 
   // Always leave this as last one,
   // but you can also remove it

@@ -2,13 +2,9 @@
   <q-layout view="hHh lpR fFf" :style="styles">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Pattaya:100,300,400,500,700" rel="stylesheet">
 
-    <q-header elevated>
-      <q-toolbar>
-        <q-toolbar-title class="text-center glossy">
-          {{ Title }} <span class="toolbar-title_class">By:<small>{{ Author }}</small></span>
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-header>
+    <my-header>
+      {{ Title }} <span class="toolbar-title_class">By:<small>{{ Author }}</small></span>
+    </my-header>
 
     <q-footer elevated class="col text-deep-orange-11">
       <q-toolbar class="text-center q-mt-sm">
@@ -47,15 +43,15 @@ export default {
           'background-size': 'cover'
         }
     }
-  }  
+  },
+  components: {
+    'my-header' : require('src/components/My_Header').default 
+  }
 }
 </script>
 
 <style lang="scss" scoped>
- .toolbar-title_class {
-   font-family: 'pattaya';
-   letter-spacing: 1px;
- }
+
   @media screen and (max-width: 700px) { 
     .q-header {
       display: none;

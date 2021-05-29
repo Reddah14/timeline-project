@@ -3,21 +3,13 @@
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Pattaya:100,300,400,500,700" rel="stylesheet">
 
     <my-header>
-      {{ Title }} <span class="toolbar-title_class">By:<small>{{ Author }}</small></span>
+      {{ title }} <span class="toolbar-title_class">By:<small>{{ author }}</small></span>
     </my-header>
 
-    <q-footer elevated class="col text-deep-orange-11">
-      <q-toolbar class="text-center q-mt-sm">
-        <q-toolbar-title>{{ Title }}</q-toolbar-title>
-      </q-toolbar>
-      <q-toolbar class="text-center q-mb-md">
-        <q-toolbar-title>
-          <span class="toolbar-title_class">
-            By: {{ Author }}
-          </span>
-        </q-toolbar-title>
-      </q-toolbar>      
-    </q-footer>    
+    <my-footer
+      :title="title"
+      :author="author"
+    ></my-footer>
 
     <q-page-container>
       <router-view />
@@ -31,8 +23,8 @@ const My_BG_Image = 'https://cdn.pixabay.com/photo/2020/01/11/13/22/woman-475753
 export default {
   data() {
     return {
-      Title: 'Test Frontend Finteca',
-      Author: 'Salvador'
+      title: 'Test Frontend Finteca',
+      author: 'Salvador'
     }
   },
   computed: {
@@ -45,7 +37,8 @@ export default {
     }
   },
   components: {
-    'my-header' : require('src/components/My_Header').default 
+    'my-header' : require('src/components/My_Header').default,
+    'my-footer' : require('src/components/My_Footer').default
   }
 }
 </script>

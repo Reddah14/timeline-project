@@ -6,8 +6,17 @@
       <div>
 
         <div>
-          <p class="welcome-class text-white">
+          <p
+            v-if="!isUserCatched"
+            class="welcome-class text-white"
+          >
             hello...
+          </p>
+          <p 
+            v-else
+            class="welcome-class text-white"
+          >
+            Greetings Dear
           </p>
         </div>
 
@@ -34,7 +43,20 @@
         </div>
 
         <div v-else class="user-class text-white">
-          {{ userNameToUpperCase }}
+          
+          <div class="">
+            {{ userNameToUpperCase }}
+          </div>
+
+          <q-btn
+            class="q-mt-xl"
+            color="white"
+            text-color="dark"
+            unelevated
+            to="/timeline"
+            label="Start"
+            no-caps
+          />          
         </div>
 
 
@@ -82,10 +104,14 @@ export default {
     font-size: 65px;
   }
   .q-input {
-    text-transform: uppercase;
     font-weight: 600;
     font-size: 30px;
     min-width: 400px;
     max-width: 500px;
+  }
+  .user-class {
+    text-align: center;
+    font-family: 'pattaya';
+    font-size: 95px;
   }
 </style>

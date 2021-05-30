@@ -7,33 +7,10 @@
 
                 <q-scroll-area class="q-scroll-timeline">
 
-                    <q-timeline
-                        class="q-px-md"
-                        color="secondary"
-                        side="left"
-                        layout="comfortable"
-                        dark
-                    >
-                        
-                        <q-timeline-entry heading body="Timeline Events" />
+                    <timeline-events
+                        :events="events"
+                    ></timeline-events>
 
-                        <q-timeline-entry
-                            v-for="event in events"
-                            :key="event.id"
-                            :title="event.title"
-                            :subtitle="event.subtitle"
-                            :body="event.body"
-                        >
-                            <q-btn
-                                class="row text-center"
-                                padding="sm"
-                                round
-                                color="deep-orange"
-                                icon="edit" 
-                            />
-                        </q-timeline-entry>
-
-                    </q-timeline>
                 </q-scroll-area>  
 
                 <div class="q-ma-lg absolute-bottom-right">
@@ -76,18 +53,19 @@ export default {
         ...mapGetters('events', ['events'])
     },
     components: {
-        'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default
+        'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default,
+        'timeline-events' : require('src/components/TimelineEvents').default
     }
 }
 </script>
 
 <style>
     .q-timeline {
-            font-family: 'poppins';
-        }
+        font-family: 'poppins';
+    }
     .q-timeline__title {
-            font-size: 28px;
-        }        
+        font-size: 28px;
+    }        
     .q-scroll-timeline {
         display: flex;
         flex-grow: 1;

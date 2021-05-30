@@ -4,6 +4,8 @@
   </div>
 </template>
 <script>
+require('src/utils/Notificator');
+
 export default {
   name: 'App'
 }

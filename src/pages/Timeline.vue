@@ -69,6 +69,9 @@ export default {
     components: {
         'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default,
         'timeline-events' : require('src/components/TimelineEvents').default
+    },
+    mounted() {
+       	this.$objToaster.Toastify_Welcome('salva');        
     }
 }
 </script>

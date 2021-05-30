@@ -49,7 +49,10 @@
 
 			<q-dialog v-model="showAddEventDialog">
 
-                <modal-add-edit-event></modal-add-edit-event>
+                <modal-add-edit-event
+                    type="add"
+					@closeDialog="showAddEventDialog = false"
+                ></modal-add-edit-event>
 
 			</q-dialog>                
 

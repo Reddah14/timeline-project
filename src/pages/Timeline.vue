@@ -60,7 +60,7 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            showAddEventDialog: true
+            showAddEventDialog: false
         }
     },
     computed: {

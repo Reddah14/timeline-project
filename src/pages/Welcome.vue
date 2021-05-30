@@ -17,6 +17,7 @@
           </p>
           <q-input
             v-model="user"
+            @keyup.esc="clearUser"
             @keyup.enter="catchUser"
             autofocus
             rounded
@@ -32,8 +33,8 @@
           />
         </div>
 
-        <div v-else class="user-class">
-          {{ user }}
+        <div v-else class="user-class text-white">
+          {{ userNameToUpperCase }}
         </div>
 
 
@@ -55,6 +56,14 @@ export default {
       this.$objFunctions.saveUserName(this.user);
       this.isUserCatched = true;
         console.log( this.$q.sessionStorage.getItem("userName") )
+    },
+    clearUser() {
+      this.user = ''
+    }
+  },
+  computed: {
+    userNameToUpperCase() {
+      return this.user.toUpperCase();
     }
   }
 }

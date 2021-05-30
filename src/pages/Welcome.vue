@@ -33,6 +33,7 @@
             standout
           />
           <q-btn
+            v-if="user.length"
             @click="catchUser"
             push
             class="q-ma-lg"

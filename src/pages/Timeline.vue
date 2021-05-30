@@ -7,9 +7,23 @@
 
                 <q-scroll-area class="q-scroll-timeline">
 
-                    <timeline-events
-                        :events="events"
-                    ></timeline-events>
+                    <q-timeline
+                        class="q-px-md"
+                        color="secondary"
+                        side="left"
+                        layout="comfortable"
+                        dark
+                    >                    
+
+                        <q-timeline-entry heading body="Timeline Events" />
+
+                        <timeline-events
+                            v-for="event in events"
+                            :key="event.id"
+                            :event="event"
+                        ></timeline-events>
+
+                    </q-timeline>                
 
                 </q-scroll-area>  
 

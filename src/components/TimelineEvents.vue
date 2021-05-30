@@ -1,18 +1,6 @@
 <template>
 
-    <q-timeline
-        class="q-px-md"
-        color="secondary"
-        side="left"
-        layout="comfortable"
-        dark
-    >
-        
-        <q-timeline-entry heading body="Timeline Events" />
-
         <q-timeline-entry
-            v-for="event in events"
-            :key="event.id"
             :title="event.title"
             :subtitle="event.subtitle"
             :body="event.body"
@@ -35,11 +23,7 @@
 
             </q-dialog>
 
-
         </q-timeline-entry>
-		
-
-    </q-timeline>
 
 </template>
 
@@ -51,7 +35,7 @@ export default {
         }
     },
     props: [
-        'events'
+        'event'
     ],
     components: {
         'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default

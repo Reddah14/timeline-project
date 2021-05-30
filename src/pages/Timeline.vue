@@ -23,10 +23,36 @@
                             :title="event.title"
                             :subtitle="event.subtitle"
                             :body="event.body"
-                        />
+                        >
+                            <q-btn
+                                class="row text-center"
+                                padding="sm"
+                                round
+                                color="deep-orange"
+                                icon="edit" 
+                            />
+                        </q-timeline-entry>
 
-                    </q-timeline> 
-                </q-scroll-area>     
+                    </q-timeline>
+                </q-scroll-area>  
+
+                <div class="q-ma-lg absolute-bottom-right">
+                    <q-btn
+                        @click="showAddEventDialog = true"
+                        padding="sm"
+                        color="secondary"
+                        text-color="brown-9"
+                        icon="add"
+                        size="29px"
+                    />
+                </div>
+
+			<q-dialog v-model="showAddEventDialog">
+
+                <modal-add-edit-event></modal-add-edit-event>
+
+			</q-dialog>                
+
 
             </div>
         </q-page>
@@ -38,8 +64,16 @@
 import { mapGetters } from 'vuex'
 
 export default {
+    data() {
+        return {
+            showAddEventDialog: true
+        }
+    },
     computed: {
         ...mapGetters('events', ['events'])
+    },
+    components: {
+        'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default
     }
 }
 </script>

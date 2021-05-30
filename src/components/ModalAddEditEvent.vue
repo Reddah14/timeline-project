@@ -2,10 +2,10 @@
 
 	<q-card class="form-card">
 
-		<form>
+		<form @submit.prevent="submitAddEditEvent">
 
 			<q-card-section>
-				<div class="text-h6 heading">add event</div>
+				<div class="text-h6 heading">{{ type }} event</div>
 			</q-card-section>
 
 			<q-card-section>
@@ -66,12 +66,14 @@
 					color="green-14"
 				/>
 			</q-card-actions>
-			
+
 		</form>
   	</q-card>  
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     data() {
         return {
@@ -81,7 +83,18 @@ export default {
                 body: ''
             }
         }
-    }
+    },
+	props: [
+		'type'
+	],
+	methods: {
+		...mapActions('events', ['addEvent']),
+		
+		submitAddEditEvent() {
+			this.addEvent(this.eventToSubmit)
+			this.$emit('closeDialog')
+		}
+	}
 }
 </script>
 

@@ -105,20 +105,29 @@ export default {
 					this.$emit('closeDialog')
 					this.submitEvent()
 				}
+				else {
+            		this.$objToaster.ToastifyError();
+				}
 		},
 		submitEvent() {
 			if (this.type == 'add') {
 				this.addEvent(this.eventToSubmit)
+
+            	this.$objToaster.ToastifyEventAdded();
+				
 			}
-			else {
+			else { 
 				this.updateEvent(this.eventToSubmit)
+
+            	this.$objToaster.ToastifyEventEdited(this.eventToSubmit.title);
 			}			
 		}
 	},
 	mounted() {
 		if (this.type == 'edit') {
 			this.eventToSubmit = Object.assign({},this.event)
-		}		
+		}
+
 	}
 }
 </script>

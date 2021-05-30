@@ -5,16 +5,18 @@
             <div class="q-pa-lg q-ma-lg bg-brown-5 text-white text-center fullscreen column">
               <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
 
-                <q-scroll-area class="q-scroll-timeline">
+                <logout-button />
 
+                <q-scroll-area class="q-scroll-timeline">
+                    
                     <q-timeline
                         class="q-px-md"
                         color="secondary"
                         side="left"
                         layout="comfortable"
                         dark
-                    >                    
-
+                    >     
+ 
                         <q-timeline-entry heading body="Timeline Events" />
 
                         <timeline-events
@@ -68,10 +70,11 @@ export default {
     },
     components: {
         'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default,
-        'timeline-events' : require('src/components/TimelineEvents').default
+        'timeline-events' : require('src/components/TimelineEvents').default,
+        'logout-button' : require('src/components/Logout_Button').default
     },
     mounted() {
-       	this.$objToaster.Toastify_Welcome('salva');        
+       	this.$objToaster.Toastify_Welcome( this.$q.sessionStorage.getItem("userName") );        
     }
 }
 </script>

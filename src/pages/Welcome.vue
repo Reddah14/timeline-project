@@ -1,24 +1,62 @@
 <template>
   <q-page class="inline-block absolute-center ">
 
-    <div>
-      <h2 class="welcome-class text-white">hello...</h2>
-    </div>
-    <div>
-      <small class="name-class absolute-center" >enter your name</small>
-    </div>
-    <div>
-      <q-input autofocus rounded standout />
-    </div>
+    <div class="text-center q-pa-md flex flex-center">
+
+      <div>
+
+        <div>
+          <p class="welcome-class text-white">
+            hello...
+          </p>
+        </div>
+
+        <div v-if="!isUserCatched">
+          <p class="enter-name-class">
+            enter your name
+          </p>
+          <q-input
+            v-model="user"
+            @keyup.enter="catchUser"
+            autofocus
+            rounded
+            standout
+          />
+          <q-btn
+            @click="catchUser"
+            push
+            class="q-ma-lg"
+            padding="xs lg"
+            color="warning"
+            icon="done"
+          />
+        </div>
+
+        <div v-else class="user-class">
+          {{ user }}
+        </div>
 
 
-
+      </div>
+    </div>
   </q-page>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      user: '',
+      isUserCatched: false
+    }
+  },
+  methods: {
+    catchUser() {
+      this.$objFunctions.saveUserName(this.user);
+      this.isUserCatched = true;
+        console.log( this.$q.sessionStorage.getItem("userName") )
+    }
+  }
 }
 </script>
 

@@ -1,3 +1,5 @@
+import { uid } from 'quasar'
+
 const state = {
 	events: [
 		{
@@ -22,11 +24,19 @@ const state = {
 }
 
 const mutations = {
-
+    addEvent(state, event) {
+        state.events.push(event)
+    }
 }
 
 const actions = {
+    addEvent({ commit }, event) { 
+    	let newID = uid() //generate uniqueID
+		event.id = newID
 
+// now we commit the mutation
+        commit('addEvent', event)
+    }
 }
 
 const getters = {

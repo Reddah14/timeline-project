@@ -92,12 +92,9 @@ export default {
 		...mapActions('events', [
 			'addEvent',
 			'updateEvent'
-			]),
-		
+		]),
 		submitForm() {
-			this.$refs.eventTitle.validate()
-			this.$refs.eventSubtitle.validate()			
-			this.$refs.eventDescription.validate()
+			this.validateFormFields();
 
 				if (!this.$refs.eventTitle.hasError && !this.$refs.eventSubtitle.hasError 
 					&& !this.$refs.eventDescription.hasError) {
@@ -106,28 +103,78 @@ export default {
 					this.submitEvent()
 				}
 				else {
-            		this.$objToaster.ToastifyError();
+            		this.$objToaster.ToastifyError('Enter the fields correctly !');
 				}
 		},
 		submitEvent() {
 			if (this.type == 'add') {
-				this.addEvent(this.eventToSubmit)
-
-            	this.$objToaster.ToastifyEventAdded();
-				
+				this.addEventAxios()
 			}
-			else { 
-				this.updateEvent(this.eventToSubmit)
+			else if (this.type == 'edit') { 
+				this.editEventAxios()
+			}
+			else {
+            	this.$objToaster.ToastifyError('There was an error !');
+			}
+		},
+		validateFormFields() {
+			this.$refs.eventTitle.validate()
+			this.$refs.eventSubtitle.validate()			
+			this.$refs.eventDescription.validate()
+		},
+		addEventAxios() {
+            this.addEvent(this.eventToSubmit)
+            this.$objToaster.ToastifyEventAdded();
 
-            	this.$objToaster.ToastifyEventEdited(this.eventToSubmit.title);
-			}			
-		}
+/*          var params = {
+					id: this.eventToSubmit.id,
+                    nombre: this.eventToSubmit.title,
+                    titulo: this.eventToSubmit.subtitle,
+                    descripcion: this.eventToSubmit.body
+                }
+            this.$api.post('/v1/insertNewEvent', params)
+        
+                .then((response) => { // 
+                    if ( response.status === 200 && response.data.affectedRows > 0 ) {
+            //event added to database succesfully
+			//here we will put the action that we want to execute when we receive the answer from the API
+                        this.$objToaster.ToastifyEventAdded();
+                    }       
+      
+                })
+                .catch((err) => {
+                    this.$objToaster.ToastifyError(err.message);
+            })  */  			
+		},
+		editEventAxios() {
+			this.updateEvent(this.eventToSubmit)
+			this.$objToaster.ToastifyEventEdited(this.eventToSubmit.title);
+
+/*          var params = {
+					id: this.eventToSubmit.id,
+                    nombre: this.eventToSubmit.title,
+                    titulo: this.eventToSubmit.subtitle,
+                    descripcion: this.eventToSubmit.body
+                }
+            this.$api.post('/v1/updateNewEvent', params)
+        
+                .then((response) => { // 
+                    if ( response.status === 200 && response.data.affectedRows > 0 ) {
+            //event added to database succesfully
+			//here we will put the action that we want to execute when we receive the answer from the API
+                        this.$objToaster.ToastifyEventEdited(this.eventToSubmit.title);
+                    }       
+      
+                })
+                .catch((err) => {
+                    this.$objToaster.ToastifyError(err.message);
+            })  */ 
+		}	
 	},
 	mounted() {
 		if (this.type == 'edit') {
 			this.eventToSubmit = Object.assign({},this.event)
 		}
-
 	}
 }
 </script>

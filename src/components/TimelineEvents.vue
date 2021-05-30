@@ -18,13 +18,25 @@
             :body="event.body"
         >
             <q-btn
-                class="row text-center"
+                @click="showEditEventDialog = true"
+                class="row"
                 padding="sm"
                 round
                 color="deep-orange"
                 icon="edit" 
             />
+
+            <q-dialog v-model="showEditEventDialog">
+
+                <modal-add-edit-event
+                    type="edit"
+                ></modal-add-edit-event>
+
+            </q-dialog>
+
+
         </q-timeline-entry>
+		
 
     </q-timeline>
 
@@ -32,7 +44,17 @@
 
 <script>
 export default {
-    props: ['events']
+    data() {
+        return {
+            showEditEventDialog: false
+        }
+    },
+    props: [
+        'events'
+    ],
+    components: {
+        'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default
+    }
 }
 </script>
 

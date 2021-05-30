@@ -1,17 +1,16 @@
 import Vue from 'vue'
 
 const objToaster = new Vue({
-  data: {
-  },
   methods: {
     Toastify_Welcome(_caption){
         return this.$q.notify({
             message: 'WELCOME',
             caption: _caption,
-            color: 'teal-4',
+            color: 'amber-4',
             position: 'bottom',
             classes: 'glossy',
-            icon: 'timeline'
+            icon: 'timeline',
+            textColor: 'black',
         })
     },
     ToastifyEventAdded(){
@@ -29,12 +28,12 @@ const objToaster = new Vue({
             color: 'deep-orange-5',
             position: 'top-left',
             icon: 'check_circle',
-            textColor: 'black',
+            textColor: 'black'
         })
     },
-    ToastifyError(){
+    ToastifyError(_message){
         return this.$q.notify({
-            message: 'Enter the fields correctly !',
+            message: _message,
             color: 'deep-purple-4',
             position: 'center',
             icon: 'flutter_dash',

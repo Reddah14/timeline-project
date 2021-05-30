@@ -19,6 +19,7 @@
                 <modal-add-edit-event
                     type="edit"
                     :event="event"
+					@closeDialog="showEditEventDialog = false"
                 ></modal-add-edit-event>
 
             </q-dialog>

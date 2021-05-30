@@ -2,7 +2,7 @@
 
 	<q-card class="form-card">
 
-		<form @submit.prevent="submitAddEditEvent">
+		<form @submit.prevent="submitForm">
 
 			<q-card-section>
 				<div class="text-h6 heading">{{ type }} event</div>
@@ -42,7 +42,7 @@
 					<q-input
 						v-model="eventToSubmit.body"
 						:rules="[
-							val => val.length < 200 || 'Please use maximum 250 characters'
+							val => val.length < 301 || 'Please use maximum 300 characters'
 						]"
 						filled
 						label="Description"
@@ -89,11 +89,30 @@ export default {
 		'event'
 	],
 	methods: {
-		...mapActions('events', ['addEvent']),
+		...mapActions('events', [
+			'addEvent',
+			'updateEvent'
+			]),
 		
-		submitAddEditEvent() {
-			this.addEvent(this.eventToSubmit)
-			this.$emit('closeDialog')
+		submitForm() {
+			this.$refs.eventTitle.validate()
+			this.$refs.eventSubtitle.validate()			
+			this.$refs.eventDescription.validate()
+
+				if (!this.$refs.eventTitle.hasError && !this.$refs.eventSubtitle.hasError 
+					&& !this.$refs.eventDescription.hasError) {
+
+					this.$emit('closeDialog')
+					this.submitEvent()
+				}
+		},
+		submitEvent() {
+			if (this.type == 'add') {
+				this.addEvent(this.eventToSubmit)
+			}
+			else {
+				this.updateEvent(this.eventToSubmit)
+			}			
 		}
 	},
 	mounted() {

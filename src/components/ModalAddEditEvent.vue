@@ -85,7 +85,8 @@ export default {
         }
     },
 	props: [
-		'type'
+		'type',
+		'event'
 	],
 	methods: {
 		...mapActions('events', ['addEvent']),
@@ -94,6 +95,11 @@ export default {
 			this.addEvent(this.eventToSubmit)
 			this.$emit('closeDialog')
 		}
+	},
+	mounted() {
+		if (this.type == 'edit') {
+			this.eventToSubmit = Object.assign({},this.event)
+		}		
 	}
 }
 </script>

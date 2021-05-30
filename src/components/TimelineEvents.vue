@@ -30,6 +30,7 @@
 
                 <modal-add-edit-event
                     type="edit"
+                    :event="event"
                 ></modal-add-edit-event>
 
             </q-dialog>

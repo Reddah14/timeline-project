@@ -78,7 +78,6 @@ export default {
     catchUser() {
       this.$objFunctions.saveUserName(this.user);
       this.isUserCatched = true;
-        console.log( this.$q.sessionStorage.getItem("userName") )
     },
     clearUser() {
       this.user = ''

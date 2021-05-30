@@ -27,16 +27,17 @@ export default {
     margin-top: 120px;
     text-align: center;
     font-family: 'pattaya';
-    font-size: 77px;
+    font-size: 86px;
   }
-  .name-class {
-  margin-top: 60px;
-  text-align: center;
-  font-family: 'pattaya';
-  font-size: 77px;
-}
+  .enter-name-class {
+    margin-top: 60px;
+    font-family: 'pattaya';
+    font-size: 65px;
+  }
   .q-input {
-    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 30px;
     min-width: 400px;
     max-width: 500px;
   }

@@ -40,7 +40,16 @@ const objToaster = new Vue({
             textColor: 'black',
             timeout: 1500
         })
-    }    
+    },
+    Toastify_ByeBye(_message){
+        return this.$q.notify({
+            message: 'See You Soon ' + _message + ' !',
+            color: 'brown-10',
+            position: 'center',
+            icon: 'pan_tool',
+            timeout: 2800
+        })
+    }     
   }
 })
 

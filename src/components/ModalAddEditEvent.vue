@@ -2,7 +2,7 @@
 
 	<q-card class="form-card">
 
-		<form @submit.prevent="submitForm">
+		<form @submit.prevent="submitForm" @keyup.enter="submitForm">
 
 			<q-card-section>
 				<div class="text-h6 heading">{{ type }} event</div>

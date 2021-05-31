@@ -49,7 +49,7 @@ const objToaster = new Vue({
             icon: 'pan_tool',
             timeout: 2800
         })
-    }     
+    }
   }
 })
 

@@ -23,12 +23,7 @@ export default {
             this.$objToaster.Toastify_ByeBye(this.$q.sessionStorage.getItem( 'userName' ))
             this.$objFunctions.removeUserName(this.user);
             this.$router.push({ path: '/' });
-
         }
     }
 }
 </script>
-
-<style>
-
-</style>

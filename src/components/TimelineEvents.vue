@@ -1,30 +1,30 @@
 <template>
 
-        <q-timeline-entry
-            :title="event.title"
-            :subtitle="event.subtitle"
-            :body="event.body"
-        >
-            <q-btn
-                @click="showEditEventDialog = true"
-                class="row"
-                padding="sm"
-                round
-                color="deep-orange"
-                icon="edit" 
-            />
+    <q-timeline-entry
+        :title="event.title"
+        :subtitle="event.subtitle"
+        :body="event.body"
+    >
+        <q-btn
+            @click="showEditEventDialog = true"
+            class="row"
+            padding="sm"
+            round
+            color="deep-orange"
+            icon="edit" 
+        />
 
-            <q-dialog v-model="showEditEventDialog">
+        <q-dialog v-model="showEditEventDialog">
 
-                <modal-add-edit-event
-                    type="edit"
-                    :event="event"
-					@closeDialog="showEditEventDialog = false"
-                ></modal-add-edit-event>
+            <modal-add-edit-event
+                type="edit"
+                :event="event"
+                @closeDialog="showEditEventDialog = false"
+            ></modal-add-edit-event>
 
-            </q-dialog>
+        </q-dialog>
 
-        </q-timeline-entry>
+    </q-timeline-entry>
 
 </template>
 
@@ -43,7 +43,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

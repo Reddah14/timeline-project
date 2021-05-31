@@ -42,7 +42,7 @@
 					<q-input
 						v-model="eventToSubmit.body"
 						:rules="[
-							val => val.length < 301 || 'Please use maximum 300 characters'
+							val => val.length < 501 || 'Please use maximum 500 characters'
 						]"
 						filled
 						label="Description"

@@ -15,7 +15,7 @@
                         side="left"
                         layout="comfortable"
                         dark
-                    >     
+                    >
  
                         <q-timeline-entry heading body="Timeline Events" />
 
@@ -25,9 +25,9 @@
                             :event="event"
                         ></timeline-events>
 
-                    </q-timeline>                
+                    </q-timeline>
 
-                </q-scroll-area>  
+                </q-scroll-area>
 
                 <div class="q-ma-lg absolute-bottom-right">
                     <q-btn
@@ -47,7 +47,7 @@
 					@closeDialog="showAddEventDialog = false"
                 ></modal-add-edit-event>
 
-			</q-dialog>                
+			</q-dialog>
 
 
             </div>
@@ -56,39 +56,6 @@
   </q-layout>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script src="./Timeline.js"></script>
 
-export default {
-    data() {
-        return {
-            showAddEventDialog: false
-        }
-    },
-    computed: {
-        ...mapGetters('events', ['events'])
-    },
-    components: {
-        'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default,
-        'timeline-events' : require('src/components/TimelineEvents').default,
-        'logout-button' : require('src/components/Logout_Button').default
-    },
-    mounted() {
-       	this.$objToaster.Toastify_Welcome( this.$q.sessionStorage.getItem("userName") );        
-    }
-}
-</script>
-
-<style>
-    .q-timeline {
-        font-family: 'poppins';
-    }
-    .q-timeline__title {
-        font-size: 28px;
-    }        
-    .q-scroll-timeline {
-        display: flex;
-        flex-grow: 1;
-    }
-
-</style>
+<style lang="scss" src="./Timeline.scss"></style>

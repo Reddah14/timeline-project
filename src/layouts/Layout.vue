@@ -17,42 +17,6 @@
   </q-layout>
 </template>
 
-<script>
-const My_BG_Image = 'https://cdn.pixabay.com/photo/2020/01/11/13/22/woman-4757533_960_720.jpg';
+<script src="./Layout.js"></script>
 
-export default {
-  data() {
-    return {
-      title: 'Test Frontend Finteca',
-      author: 'Salvador'
-    }
-  },
-  computed: {
-    styles() {
-        return {
-          'background-image': `url(${ My_BG_Image })`,
-          'background-repeat': 'no-repeat',
-          'background-size': 'cover'
-        }
-    }
-  },
-  components: {
-    'my-header' : require('src/components/My_Header').default,
-    'my-footer' : require('src/components/My_Footer').default
-  }
-}
-</script>
-
-<style lang="scss" scoped>
-
-  @media screen and (max-width: 700px) { 
-    .q-header {
-      display: none;
-    }
-  } 
-  @media screen and (min-width: 700px) { 
-    .q-footer {
-      display: none;
-    }
-  }
-</style>
+<style lang="scss" scoped src="./Layout.scss"></style>

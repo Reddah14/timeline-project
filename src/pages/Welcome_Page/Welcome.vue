@@ -66,52 +66,6 @@
   </q-page>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      user: '',
-      isUserCatched: false
-    }
-  },
-  methods: {
-    catchUser() {
-      this.$objFunctions.saveUserName(this.user);
-      this.isUserCatched = true;
-    },
-    clearUser() {
-      this.user = ''
-    }
-  },
-  computed: {
-    userNameToUpperCase() {
-      return this.user.toUpperCase();
-    }
-  }
-}
-</script>
+<script src="./Welcome.js"></script>
 
-<style lang="scss" scoped>
-  .welcome-class {
-    margin-top: 120px;
-    text-align: center;
-    font-family: 'pattaya';
-    font-size: 86px;
-  }
-  .enter-name-class {
-    margin-top: 60px;
-    font-family: 'pattaya';
-    font-size: 65px;
-  }
-  .q-input {
-    font-weight: 600;
-    font-size: 30px;
-    min-width: 400px;
-    max-width: 500px;
-  }
-  .user-class {
-    text-align: center;
-    font-family: 'pattaya';
-    font-size: 95px;
-  }
-</style>
+<style lang="scss" scoped src="./Welcome.scss"></style>

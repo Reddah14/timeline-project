@@ -4,12 +4,12 @@ const routes = [
     path: '/',
     component: () => import('src/layouts/Layout.vue'),
     children: [
-      { path: '', component: () => import('pages/Welcome.vue') }
+      { path: '', component: () => import('src/pages/Welcome_Page/Welcome.vue') }
     ]
   },
   {
     path: '/timeline',
-    component: () => import('pages/Timeline.vue')  
+    component: () => import('src/pages/Timeline_Page/Timeline.vue')
   },  
 
   // Always leave this as last one,

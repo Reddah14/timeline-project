@@ -15,7 +15,7 @@
 						v-model="eventToSubmit.title"
 						:rules="[
 							val => !!val || '* Required',
-							val => val.length < 21 || 'Please use maximum 20 characters',
+							val => val.length < 21 || 'Please use maximum 20 characters'
 						]"
 						autofocus
 						filled
@@ -29,14 +29,29 @@
 					<q-input
 						v-model="eventToSubmit.subtitle"
 						:rules="[
-							val => val.length < 21 || 'Please use maximum 20 characters' 
+							val => val.length < 21 || 'Please use maximum 20 characters'
 						]"
 						filled
-						label="Subtitle"
+						label="Subtitle / Date"
 						class="col"
-						ref="eventSubtitle" 
-					/>
-				</div>            
+						ref="eventSubtitle"
+					>
+						<template v-slot:append>
+							<q-icon name="date_range" class="cursor-pointer">
+								<q-popup-proxy :breakpoint="600">
+									<q-date
+										v-model="eventToSubmit.subtitle"
+									>
+										<div class="row items-center justify-end">
+											<q-btn v-close-popup label="Close" color="primary" flat />
+										</div>
+									</q-date>						
+								</q-popup-proxy>
+							</q-icon>
+						</template>
+
+					</q-input>
+				</div>
 
 				<div class="row q-mb-md">
 					<q-input

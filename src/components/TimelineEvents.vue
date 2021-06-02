@@ -7,6 +7,7 @@
     >
     <div class="row">
         <q-btn
+            @click="sureToDelete(event.id)"
             class="row q-mr-auto"
             padding="sm"
             round
@@ -41,6 +42,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     data() {
         return {
@@ -50,6 +53,22 @@ export default {
     props: [
         'event'
     ],
+    methods: {
+        ...mapActions('events', [
+            'deleteEvent'
+        ]),
+        sureToDelete(_event) {
+
+            this.$q.dialog({
+                    title: 'Confirm',
+                    message: 'Really delete this event ?',
+                    cancel: true,
+                    persistent: true
+                }).onOk(() => {
+                    this.deleteEvent(_event)
+                })            
+        }
+    },
     components: {
         'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default
     }

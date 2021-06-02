@@ -5,14 +5,23 @@
         :subtitle="event.subtitle"
         :body="event.body"
     >
+    <div class="row">
+        <q-btn
+            class="row q-mr-auto"
+            padding="sm"
+            round
+            color="deep-orange"
+            icon="delete" 
+        />
         <q-btn
             @click="showEditEventDialog = true"
             class="row"
             padding="sm"
             round
-            color="deep-orange"
+            color="light-green-7"
             icon="edit" 
         />
+    </div>
 
         <q-dialog v-model="showEditEventDialog">
 

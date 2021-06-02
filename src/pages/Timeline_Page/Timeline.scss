@@ -1,10 +1,10 @@
 .q-timeline {
     font-family: 'poppins';
 }
-.q-timeline__title {
-    font-size: 28px;
-}
 .q-scroll-timeline {
     display: flex;
     flex-grow: 1;
+}
+ .q-timeline--comfortable .q-timeline__heading {
+    display: inline-flex;
 }

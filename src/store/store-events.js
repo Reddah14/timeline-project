@@ -27,6 +27,9 @@ const actions = {
     },
 	updateEvent({ commit }, event) {
 		commit('updateEvent', event)
+	},
+	deleteEvent({ commit }, event_Id) {
+		commit('deleteEvent', event_Id)
 	}
 }
 

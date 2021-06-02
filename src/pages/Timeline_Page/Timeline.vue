@@ -25,6 +25,21 @@
                             :event="event"
                         ></timeline-events>
 
+                        <q-banner
+                            class="bg-deep-purple-7 text-white q-ma-xl"
+                            rounded
+                        >
+                            There are no Events in Timeline !
+                            <template v-slot:action>
+                                <q-btn
+                                    label="Add Event" 
+                                    color="white"
+                                    flat
+                                    glossy
+                                />
+                            </template>
+                        </q-banner>
+
                     </q-timeline>
 
                 </q-scroll-area>

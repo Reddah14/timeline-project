@@ -5,6 +5,13 @@
     display: flex;
     flex-grow: 1;
 }
- .q-timeline--comfortable .q-timeline__heading {
+.q-timeline--comfortable .q-timeline__heading {
     display: inline-flex;
+}
+.justify-end {
+    justify-content: center;
+}
+.text-body2 {
+    margin: 15px;
+    font-size: 20px;
 }

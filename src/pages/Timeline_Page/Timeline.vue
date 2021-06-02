@@ -26,6 +26,7 @@
                         ></timeline-events>
 
                         <q-banner
+                            v-if="!Object.keys(events).length"
                             class="bg-deep-purple-7 text-white q-ma-xl"
                             rounded
                         >

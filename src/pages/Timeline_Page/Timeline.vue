@@ -33,6 +33,7 @@
                             There are no Events in Timeline !
                             <template v-slot:action>
                                 <q-btn
+                                    @click="showAddEventDialog = true"
                                     label="Add Event" 
                                     color="white"
                                     flat

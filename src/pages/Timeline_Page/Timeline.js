@@ -12,7 +12,8 @@ export default {
     components: {
         'modal-add-edit-event' : require('src/components/ModalAddEditEvent').default,
         'timeline-events' : require('src/components/TimelineEvents').default,
-        'logout-button' : require('src/components/Logout_Button').default
+        'logout-button' : require('src/components/Logout_Button').default,
+        'add-event-button' : require('src/components/AddEvent_Button').default
     },
     mounted() {
        	this.$objToaster.Toastify_Welcome( this.$q.sessionStorage.getItem("userName") );

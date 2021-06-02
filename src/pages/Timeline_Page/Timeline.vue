@@ -47,14 +47,12 @@
                 </q-scroll-area>
 
                 <div class="q-ma-lg absolute-bottom-right">
-                    <q-btn
-                        @click="showAddEventDialog = true"
-                        padding="sm"
-                        color="secondary"
-                        text-color="brown-9"
-                        icon="add"
-                        size="29px"
-                    />
+
+                    <add-event-button
+                        @showAddEventDialog="showAddEventDialog = true"
+                        v-if="Object.keys(events).length"
+                    ></add-event-button>
+                    
                 </div>
 
 			<q-dialog v-model="showAddEventDialog">

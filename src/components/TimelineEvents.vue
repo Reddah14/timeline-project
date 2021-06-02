@@ -23,7 +23,10 @@
         />
     </div>
 
-        <q-dialog v-model="showEditEventDialog">
+        <q-dialog 
+            v-model="showEditEventDialog"
+            persistent
+        >
 
             <modal-add-edit-event
                 type="edit"

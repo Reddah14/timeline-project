@@ -55,7 +55,10 @@
                     
                 </div>
 
-			<q-dialog v-model="showAddEventDialog">
+			<q-dialog
+                v-model="showAddEventDialog"
+                persistent
+            >
 
                 <modal-add-edit-event
                     type="add"

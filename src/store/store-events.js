@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { uid } from 'quasar'
 
 const state = {
@@ -14,6 +15,15 @@ const mutations = {
                 Object.assign( state.events[i], event )
             }
         }
+	},
+	deleteEvent(state, id) {
+        for(var i=0; i< state.events.length; i++) {
+            if ( state.events[i].id == id ) {
+				let index = i;
+				Vue.delete(state.events, index);
+				break
+			}
+        }
 	}
 }
 
@@ -28,8 +38,8 @@ const actions = {
 	updateEvent({ commit }, event) {
 		commit('updateEvent', event)
 	},
-	deleteEvent({ commit }, event_Id) {
-		commit('deleteEvent', event_Id)
+	deleteEvent({ commit }, id) {
+		commit('deleteEvent', id)
 	}
 }
 

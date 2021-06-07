@@ -7,7 +7,7 @@
     >
     <div class="row">
         <q-btn
-            @click="sureToDelete(event.id)"
+            @click="sureToDelete()"
             class="row q-mr-auto"
             padding="sm"
             round
@@ -57,7 +57,7 @@ export default {
         ...mapActions('events', [
             'deleteEvent'
         ]),
-        sureToDelete(_event) {
+        sureToDelete() {
 
             this.$q.dialog({
                     title: 'Confirm',
@@ -65,7 +65,7 @@ export default {
                     cancel: true,
                     persistent: true
                 }).onOk(() => {
-                    this.deleteEvent(_event)
+                    this.deleteEvent(this.event.id)
                 })            
         }
     },

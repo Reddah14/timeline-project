@@ -21,7 +21,7 @@
 						filled
 						label="Title"
 						class="col"
-						ref="eventTitle" 
+						ref="eventTitle"
 					/>
 				</div>
 
@@ -38,14 +38,14 @@
 					>
 						<template v-slot:append>
 							<q-icon name="date_range" class="cursor-pointer">
-								<q-popup-proxy :breakpoint="600">
+								<q-popup-proxy>
 									<q-date
 										v-model="eventToSubmit.subtitle"
 									>
 										<div class="row items-center justify-end">
 											<q-btn v-close-popup label="Close" color="primary" flat />
 										</div>
-									</q-date>						
+									</q-date>
 								</q-popup-proxy>
 							</q-icon>
 						</template>
@@ -63,7 +63,7 @@
 						label="Description"
 						type="textarea"
 						class="col"
-						ref="eventDescription" 
+						ref="eventDescription"
 					/>
 				</div>
 			
@@ -178,13 +178,13 @@ export default {
             //event added to database succesfully
 			//here we will put the action that we want to execute when we receive the answer from the API
                         this.$objToaster.ToastifyEventEdited(this.eventToSubmit.title);
-                    }       
-      
+                    }
+
                 })
                 .catch((err) => {
                     this.$objToaster.ToastifyError(err.message);
-            })  */ 
-		}	
+            })  */
+		}
 	},
 	mounted() {
 		if (this.type == 'edit') {

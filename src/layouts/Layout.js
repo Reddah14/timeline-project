@@ -3,7 +3,7 @@ const My_BG_Image = 'https://cdn.pixabay.com/photo/2020/01/11/13/22/woman-475753
 export default {
   data() {
     return {
-      title: 'Test Frontend Finteca',
+      title: 'Test Frontend',
       author: 'Salvador'
     }
   },
